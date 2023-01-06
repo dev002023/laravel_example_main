@@ -17,6 +17,7 @@
                 font-size: 12px;
                 color: rgba(0,0,0, .525);
                 margin-bottom: 4px;
+                text-transform: capitalize;
             }
         </style>
     </head>

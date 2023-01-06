@@ -14,8 +14,8 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-       echo "<pre>";
-       print_r($request->all());
+    //    echo "<pre>";
+    //    print_r($request->all());
 
        $customer = new Customer;
        $customer->name = $request['name'];
@@ -27,5 +27,14 @@ class CustomerController extends Controller
        $customer->dob = $request['dob'];
        $customer->password = md5($request['password']);
        $customer->save();
+
+       return redirect('/customer/view');
+    }
+
+    public function view()
+    {   
+        $customers = Customer::all();
+        $data = compact('customers');
+        return view('customer_list')->with($data);
     }
 }
