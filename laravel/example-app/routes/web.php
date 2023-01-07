@@ -20,14 +20,14 @@ use Symfony\Component\Finder\Iterator\CustomFilterIterator;
 |
 */
 
-// Route::get('/', function () {
-//     return view('homepage');
-// });
+Route::get('/', function () {
+    return view('homepage');
+});
 
 
-// Route::get('/home',function(){
-//     return view('frontend/homepage');
-// });
+Route::get('/home',function(){
+    return view('homepage');
+});
 
 
 // Route::any('/demo', function(){
@@ -69,17 +69,17 @@ use Symfony\Component\Finder\Iterator\CustomFilterIterator;
 
 
 //Route::get('/', [DemoController::class,'index']); 
-Route::get('/about',[DemoController::class, 'about']);
+//Route::get('/about',[DemoController::class, 'about']);
 
 // we have use it like as
  //Route::get('/about','App\Http\Controllers\DemoController@about');
 
 //route for resource controller 
-Route::resource('/photo',PhotoController::class);
+// Route::resource('/photo',PhotoController::class);
 
-Route::get("/",[UserController::class,'form']);
-Route::get('/form', [UserController::class,'form']);
-Route::post('/register', [UserController::class, 'register']);
+// Route::get("/",[UserController::class,'form']);
+// Route::get('/form', [UserController::class,'form']);
+// Route::post('/register', [UserController::class, 'register']);
 
 // Route::get('/customer',function(){
 
@@ -88,6 +88,9 @@ Route::post('/register', [UserController::class, 'register']);
 //     print_r($customers->toArray());
 // });
 
+
+
 Route::get('/customer',[CustomerController::class, 'index']);
-Route::post('/customer', [CustomerController::class, 'store']);
+Route::post('/customer', [CustomerController::class, 'store'])->name('customer.create');
 Route::get('/customer/view', [CustomerController::class, 'view']);
+Route::get('/customer/delete/{id}', [CustomerController::class, 'delete']);
